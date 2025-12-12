@@ -15,7 +15,22 @@ This document tracks work items and records the documentation conventions for Gi
   - important notes for maintenance and future extensions.
 
 ## Current Tasks
-- Define the GitKraken-inspired GUI layout and component structure.
-- Explore Rust/.NET interoperability options for UI or specialized library reuse.
-- Plan repository discovery, browsing, and cloning workflows with user-friendly defaults.
-- Draft automated setup hooks for repositories (e.g., post-clone scripts or guided prompts).
+- **GitKraken-inspired GUI layout**
+  - Capture the primary panes (repo tree, history graph, diff/stage, branches, remotes) and how they resize/dock.
+  - Prototype navigation flows between panels (keyboard shortcuts, context menus, drag-and-drop).
+  - Document telemetry touchpoints and opt-in UX for UI events.
+
+- **Rust/.NET interoperability**
+  - Identify candidate features to host in .NET (e.g., platform-native dialogs, existing libraries to reuse).
+  - Spike a thin IPC layer between Rust and .NET and document data contracts and error handling.
+  - Evaluate packaging/distribution impact for dual-runtime components.
+
+- **Repository discovery, browsing, and cloning**
+  - Map the onboarding flow: workspace selection, search/browse (local + remote), clone with progress, and post-clone actions.
+  - Design recent/recommended repository surfaces and shortcuts in the UI.
+  - Add validation and helpful defaults for clone destinations and authentication.
+
+- **Automated setup hooks**
+  - Define a safe format for optional post-clone/install steps (schema, validation, sandboxing).
+  - Specify user consent UI and logging around hook execution.
+  - Provide guidance for repository authors to contribute their own hooks.
