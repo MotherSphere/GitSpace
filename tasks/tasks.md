@@ -34,3 +34,32 @@ This document tracks work items and records the documentation conventions for Gi
   - Define a safe format for optional post-clone/install steps (schema, validation, sandboxing).
   - Specify user consent UI and logging around hook execution.
   - Provide guidance for repository authors to contribute their own hooks.
+
+- **Credential storage hardening and error handling**
+  - Require native keychain by default; prompt before falling back to encrypted files and capture explicit consent.
+  - Introduce salted KDFs or a master password for derived keys; log keychain errors with actionable context instead of silently degrading.
+  - Add structured error handling around credential load/save flows, distinguishing user denial, platform limitations, and unexpected failures.
+
+- **Telemetry resilience and validation**
+  - Bound offline queue size and age, add client timeouts, and implement backoff with jitter for retries.
+  - Sign or authenticate payloads; consider certificate pinning for the telemetry endpoint.
+  - Strengthen error handling: classify network vs. payload errors, persist failure diagnostics, and surface user-facing opt-in states.
+
+- **Update channel safety**
+  - Add timeouts and checksum/signature verification for release assets; ignore unsigned artifacts.
+  - Document preview vs. stable channels and provide rollback behavior for failed updates.
+  - Improve error reporting around update checks and downloads, including actionable messages for connectivity and verification issues.
+
+## Launch-ready task list
+- [ ] **CS-01: Harden credential storage fallbacks**
+  - Require native keychain usage by default; show an explicit consent prompt before falling back to encrypted files.
+  - Add a salted KDF or master password in the fallback path and log structured error details for keychain failures (user denial vs. platform limitation).
+  - Validate recovery flows: missing keychain, corrupted encrypted file, and permission errors must surface actionable guidance.
+- [ ] **TM-01: Stabilize telemetry pipeline**
+  - Enforce queue caps (size + age), client timeouts, and retry backoff with jitter; add metrics around drops.
+  - Authenticate or sign telemetry payloads and consider certificate pinning for the endpoint.
+  - Implement error taxonomy (network vs. payload vs. auth) with persisted diagnostics and user-facing opt-in state.
+- [ ] **UP-01: Secure update channel handling**
+  - Add network timeouts plus checksum/signature verification; ignore unsigned or mismatched assets.
+  - Document preview vs. stable channels, including rollback mechanics when downloads fail or validation is rejected.
+  - Provide structured error handling for update checks/downloads with clear remediation for connectivity, verification, and disk issues.
