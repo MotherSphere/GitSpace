@@ -14,5 +14,6 @@ egui-based UI components for GitSpace.
 
 ## Maintenance
 - Keep UI interactions decoupled from git commands via shared state/context.
-- Emit telemetry judiciously and respect user opt-in settings.
+- Emit telemetry judiciously and respect user opt-in settings. UI navigation emits tab switch and tab reordering events only after consent.
+- Keep navigation accessible: provide keyboard shortcuts (Ctrl/Cmd + 1-8), context menus, and drag-and-drop tab reordering alongside pointer clicks.
 - Update this document when adding new panels or significant layout changes.

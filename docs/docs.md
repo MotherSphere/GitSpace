@@ -5,6 +5,7 @@ This folder stores high-level documentation for GitSpace. Use it for architectur
 ## Contents
 - Architecture sketches and diagrams.
 - Design rationales for the GitKraken-inspired interface.
+- Layout and navigation maturity notes in `gitkraken-layout.md`.
 - Notes on cross-platform considerations and dependency choices.
 
 ## Maintenance
