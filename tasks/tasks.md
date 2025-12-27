@@ -21,9 +21,10 @@ This document tracks work items and records the documentation conventions for Gi
   - Document telemetry touchpoints and opt-in UX for UI events.
 
 - **Rust/.NET interoperability**
-  - Identify candidate features to host in .NET (e.g., platform-native dialogs, existing libraries to reuse).
-  - Spike a thin IPC layer between Rust and .NET and document data contracts and error handling.
-  - Evaluate packaging/distribution impact for dual-runtime components.
+  - ✅ Identified candidate features to host in .NET (e.g., platform-native dialogs, existing libraries to reuse).
+  - ✅ Spiked a thin IPC layer between Rust and .NET and documented data contracts and error handling.
+  - ✅ Evaluated packaging/distribution impact for dual-runtime components.
+  - ⏳ Remaining: ship native dialogs across macOS/Linux (multi-OS UI dialog coverage, not just Windows).
 
 - **Repository discovery, browsing, and cloning**
   - Map the onboarding flow: workspace selection, search/browse (local + remote), clone with progress, and post-clone actions.
