@@ -11,6 +11,7 @@ This roadmap expands the strategic tasks from `tasks/tasks.md` with context and 
 ## Rust/.NET Interoperability
 - Candidates: platform-native dialogs, credential providers, or specialized libraries that already exist in .NET.
 - Design a minimal IPC/FFI contract (data payloads, error codes, retries) and describe lifecycle/hosting expectations.
+- Publish JSON examples in `/schemas` and keep them aligned with `docs/dotnet-contracts.md`.
 - Investigate packaging: ensuring bundled runtimes do not complicate install/update flows.
 - Document required .NET SDK setup in `docs/dotnet-setup.md`.
 - Deliverable: a spike proving a Rust UI calling into a .NET helper with documented contracts.
