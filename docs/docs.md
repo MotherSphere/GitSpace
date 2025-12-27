@@ -8,6 +8,7 @@ This folder stores high-level documentation for GitSpace. Use it for architectur
 - Layout and navigation maturity notes in `gitkraken-layout.md`.
 - Interop .NET overview in `dotnet-interop.md`.
 - .NET SDK setup instructions in `dotnet-setup.md`.
+- .NET helper project structure and build steps in `../dotnet/dotnet.md`.
 - Notes on cross-platform considerations and dependency choices.
 
 ## Maintenance
