@@ -19,6 +19,52 @@ dotnet build dotnet/GitSpace.Helper/GitSpace.Helper.csproj
 dotnet run --project dotnet/GitSpace.Helper -- "Hello from GitSpace"
 ```
 
+## Credential request validation
+From the repository root:
+```
+cat <<'EOF' | dotnet run --project dotnet/GitSpace.Helper
+{
+  "id": "req-credential-get",
+  "command": "credential.request",
+  "payload": {
+    "service": "gitspace-docs",
+    "account": "user@example.com",
+    "action": "get"
+  }
+}
+EOF
+```
+Expect `status=not_found` when the secret does not exist.
+
+```
+cat <<'EOF' | dotnet run --project dotnet/GitSpace.Helper
+{
+  "id": "req-credential-store",
+  "command": "credential.request",
+  "payload": {
+    "service": "gitspace-docs",
+    "account": "user@example.com",
+    "action": "store",
+    "secret": "example-token"
+  }
+}
+EOF
+```
+
+```
+cat <<'EOF' | dotnet run --project dotnet/GitSpace.Helper
+{
+  "id": "req-credential-erase",
+  "command": "credential.request",
+  "payload": {
+    "service": "gitspace-docs",
+    "account": "user@example.com",
+    "action": "erase"
+  }
+}
+EOF
+```
+
 ## Test
 From the repository root:
 ```
